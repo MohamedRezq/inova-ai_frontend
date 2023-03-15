@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+main {
+  width: 100%;
+}
+
+.App-header {
+  max-height: 100px;
+}
+
+.navbar {
+  box-shadow: inset;
+  
+}
+
+.navbar-container {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+#logo-img {
+  width: 100px;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.main-blog-img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
