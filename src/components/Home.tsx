@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { Container, Button } from "react-bootstrap";
 import blogs from "../db/blogs.json";
 
 interface Blog {
@@ -14,6 +13,7 @@ interface Blog {
   author: string;
   content: string;
 }
+
 const Home = () => {
   const [mainBlog, setMainBlog] = useState<Blog>({
     id: "00001",
@@ -27,13 +27,22 @@ const Home = () => {
     content: "",
   });
   useEffect(() => {
-    setMainBlog(blogs[0]);
+    setMainBlog(blogs[3]);
   }, []);
 
   return (
-    <div>
-      <img src={mainBlog?.imageUrl} alt={mainBlog?.title} className='main-blog-img' />
-      <div>dfd</div>
+    <div className="home-container">
+      <div className="main-article-wrap">
+        <img src={mainBlog.imageUrl} className="main-article-img-bg" />
+        <div className="main-article-bg-gradient"></div>
+        <Container className="main-blog">
+          <div className="title">{mainBlog.title}</div>
+          <div className="description">
+            {mainBlog.description.slice(0, 100)}...
+          </div>
+          <Button>Read Article</Button>
+        </Container>
+      </div>
     </div>
   );
 };

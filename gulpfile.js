@@ -1,16 +1,16 @@
 const { src, dest, watch, series } = require('gulp')
-const sass = require('gulp-sass')(require('sass'))
+const sass = require('gulp-sass')(require('node-sass'))
 const purgecss = require('gulp-purgecss')
 
 function buildStyles() {
-  return src('styles/sass/**/*.scss')
+  return src('src/styles/sass/**/*.scss')
     .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(purgecss({ content: ['*.html'] }))
-    .pipe(dest('css'))
+    //.pipe(purgecss({ content: ['*.html'] }))
+    .pipe(dest('src/styles/css'))
 }
 
 function watchTask() {
-  watch(['styles/sass/**/*.scss', '*.html'], buildStyles)
+  watch(['src/styles/sass/**/*.scss', '*.html'], buildStyles)
 }
 
 exports.default = series(buildStyles, watchTask)

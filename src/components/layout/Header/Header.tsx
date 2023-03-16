@@ -6,9 +6,9 @@ import Image from "react-bootstrap/Image";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Person } from "react-bootstrap-icons";
+
 const CustomToggle = React.forwardRef<any, any>(
   ({ children, onClick }, ref) => (
     <div
@@ -17,7 +17,7 @@ const CustomToggle = React.forwardRef<any, any>(
         e.preventDefault();
         onClick(e);
       }}
-      style={{marginLeft: '10px'}}
+      style={{ marginLeft: "10px" }}
     >
       {children}
     </div>
@@ -26,19 +26,23 @@ const CustomToggle = React.forwardRef<any, any>(
 
 const Header = () => {
   return (
-    <Navbar bg="white" expand="md" className='navbar'>
-      <Container fluid className='navbar-container'>
+    <Navbar expand="md" id="navbar-container">
+      <Container fluid>
         <Navbar.Brand href="/">
-          <img src="/inovaai.png" id="logo-img" />
+          <img src="/assets/inovaai.png" className="logo-img" alt="INOVA-AI" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-$'md'`} />
+        <Navbar.Toggle color="#eee" aria-controls={`offcanvasNavbar-expand-$'md'`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-$'md'`}
           aria-labelledby={`offcanvasNavbarLabel-expand-$'md'`}
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <img src="/inovaai.png" id="logo-img" />
+            <img
+              src="/assets/inovaai.png"
+              className="logo-img"
+              alt="INOVA-AI"
+            />
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Form className="d-flex">
@@ -48,15 +52,30 @@ const Header = () => {
                 className="me-2"
                 aria-label="Search"
                 size="sm"
-                color="gray"
               />
-              <Button size="sm" variant="success">Search</Button>
+              <Button size="sm" id="search-btn">
+                Search
+              </Button>
             </Form>
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Blogs</Nav.Link>
+              <Dropdown align="end" className="header-links">
+                <Dropdown.Toggle as={Container} id="dropdown-categories">
+                  Categories
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Sports</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">
+                    Business
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">
+                    Artifical Intelligence
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
               <Nav.Link href="#action2">inova-ai</Nav.Link>
-              <Dropdown className="header-links">
+              <Dropdown align="end" className="header-links">
                 <Dropdown.Toggle
                   as={CustomToggle}
                   id="dropdown-custom-components"
@@ -64,17 +83,25 @@ const Header = () => {
                   {false ? (
                     <img src="/inovaai.png" id="logo-img" />
                   ) : (
-                    <Person size={30} title='Account' color="gray" style={{border: 'solid 1px black', borderRadius: '9999px', padding: '5px'}}/>
+                    <Person
+                      size={30}
+                      title="Account"
+                      color="gray"
+                      style={{
+                        border: "solid 1px gray",
+                        borderRadius: "9999px",
+                        padding: "5px",
+                        backgroundColor: 'white',
+                        cursor: "pointer"
+                      }}
+                    />
                   )}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Item href="#/action-1">Login</Dropdown.Item>
                   <Dropdown.Item href="#/action-2">
-                    Another action
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    Something else
+                    Create account
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

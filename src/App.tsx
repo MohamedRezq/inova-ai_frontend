@@ -1,9 +1,9 @@
+import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 
-import './App.css';
 import Blog from './components/Blog';
 import Home from './components/Home';
-import Header from './components/layout/Header';
+import Header from './components/layout/Header/Header';
 
 function App() {
   return (
@@ -12,10 +12,7 @@ function App() {
         <Header />
       </header>
       <main>
-        <Routes>
-          <Route path='*' element={<Home />} />
-          <Route path="blog" element={<Blog />} />
-        </Routes>
+        <Home />
       </main>
     </div>
   );
