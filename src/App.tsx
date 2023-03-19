@@ -12,7 +12,9 @@ function App() {
         <Header />
       </header>
       <main>
-        <Home />
+        <Routes>
+          <Route path='*' element={<Home />} />
+        </Routes>
       </main>
     </div>
   );
