@@ -8,9 +8,16 @@
 // colors
 @import "colors";
 
+// pages
+@import 'pages/home';
+
+// sections
+@import 'sections/recent_blogs';
+
 // components
 @import 'components/navbar';
-@import 'components/main_article';
+@import 'components/main_blog';
+@import 'components/blog_card';
 
 // utilities (margin, padding, opacity, etc)
 @import 'utilities';

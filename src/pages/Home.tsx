@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+
 import blogs from "../db/blogs.json";
+
+import MainBlog from "../components/MainBlog";
+import RecentBlogs from "../sections/RecentBlogs";
 
 interface Blog {
   id: string;
@@ -31,19 +35,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      <div className="main-article-wrap">
-        <img src={mainBlog.imageUrl} className="main-article-img-bg" />
-        <div className="main-article-bg-gradient"></div>
-        <Container className="main-blog">
-          <div className="title">{mainBlog.title}</div>
-          <div className="description">
-            {mainBlog.description.slice(0, 100)}...
-          </div>
-          <Button>Read Article</Button>
-        </Container>
-      </div>
-    </div>
+    <Container className="home-container">
+      <MainBlog {...mainBlog} />
+      <RecentBlogs {...mainBlog} />
+    </Container>
   );
 };
 

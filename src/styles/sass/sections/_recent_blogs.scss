@@ -1,0 +1,56 @@
+@media (min-width: map-get($breakpoints, "md")) {
+  .recent-blogs-section {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 32%);
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    column-gap: 2%;
+  }
+}
+@media (max-width: map-get($breakpoints, "md")) {
+  .recent-blogs-section {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    row-gap: 30px;
+  }
+}
+
+.recent-blogs-sidebar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  border-left: solid 5px #e0e0e0;
+  border-right: solid 5px #e0e0e0;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow-y: auto;
+  color: $primary;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .recent-blogs-sidebar-blog {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    .recent-blogs-sidebar-title {
+      font-size: calc(0.5em + 1vw);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .recent-blogs-sidebar-description {
+      font-size: calc(0.5em + 0.5vw);
+    }
+    .recent-blogs-sidebar-read {
+      align-self: flex-end;
+      font-weight: bold;
+    }
+    .recent-blogs-sidebar-read:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

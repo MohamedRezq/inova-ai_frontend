@@ -27,7 +27,7 @@ const CustomToggle = React.forwardRef<any, any>(
 const Header = () => {
   return (
     <Navbar expand="md" id="navbar-container">
-      <Container fluid>
+      <Container>
         <Navbar.Brand href="/">
           <img src="/assets/inovaai.png" className="logo-img" alt="INOVA-AI" />
         </Navbar.Brand>

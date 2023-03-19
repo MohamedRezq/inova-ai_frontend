@@ -1,12 +1,17 @@
 // theme colors
 $primary: #5B0A91 !default;
+$primary_dark: #45076D !default;
 $secondary: #FFA500 !default;
+$secondary_dark: #B67806 !default;
+$shadow: #EEEBEB;
 $form: #CED7E6 !default;
 
 // color palette
 $colors: (
   "primary": #5B0A91,
+  "primary_dark": #45076D,
   "secondary": #FFA500,
+  "secondary_dark": #B67806,
   "form": #CED7E6,
   "blue": #1919e6,
   "red": #e61919,
