@@ -2,7 +2,6 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -18,6 +17,7 @@ const CustomToggle = React.forwardRef<any, any>(
         onClick(e);
       }}
       style={{ marginLeft: "10px" }}
+      id="profile-icon"
     >
       {children}
     </div>
@@ -31,7 +31,7 @@ const Header = () => {
         <Navbar.Brand href="/">
           <img src="/assets/inovaai.png" className="logo-img" alt="INOVA-AI" />
         </Navbar.Brand>
-        <Navbar.Toggle color="#eee" aria-controls={`offcanvasNavbar-expand-$'md'`} />
+        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-$'md'`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-$'md'`}
           aria-labelledby={`offcanvasNavbarLabel-expand-$'md'`}

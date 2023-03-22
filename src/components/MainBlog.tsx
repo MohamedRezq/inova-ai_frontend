@@ -1,31 +1,22 @@
 import React from "react";
-import { Container, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../app/hooks";
 
-interface Blog {
-    id: string;
-    title: string;
-    description: string;
-    tags: string[];
-    categories: string[];
-    imageUrl: string;
-    publishedAt: string;
-    author: string;
-    content: string;
-  }
-
-const MainBlog = (mainBlog: Blog) => {
+const MainBlog = () => {
+  const mainBlog = useAppSelector((state) => state.mainBlog);
 
   // Render
   return (
     <div className="main-blog-wrap">
-      <img src={mainBlog.imageUrl} className="main-blog-img-bg" />
+      <img src="/assets/bitcoin.png" className="main-blog-img-bg" />
       <div className="main-blog-bg-gradient"></div>
       <div className="main-blog">
         <div className="title">{mainBlog.title}</div>
-        <div className="description">
-          {mainBlog.description.slice(0, 100)}...
-        </div>
-        <Button>Read Article</Button>
+        <div className="description">{mainBlog.writeup.slice(0, 100)}...</div>
+        <Link to={`/blog?title=${mainBlog.title}`}>
+          <Button>Read Article</Button>
+        </Link>
       </div>
     </div>
   );

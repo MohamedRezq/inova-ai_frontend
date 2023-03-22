@@ -2,6 +2,9 @@
   background-color: $primary;
   font-size: medium;
   box-shadow: 0px 3px #E0DBDB;
+  .navbar-toggler-icon {
+    background-image: url('/assets/icons/menu.png');
+  }
   .logo-img {
     width: 100px;
     padding-bottom: 5px;
@@ -45,6 +48,16 @@
 .offcanvas {
   .logo-img {
     width: 100px;
+  }
+  .btn-close {
+    background-image: url('/assets/icons/close.png') !important;
+    opacity: 100%;
+  }
+  form, #profile-icon {
+    display: none !important;
+  }
+  #dropdown-categories {
+    padding-left: 0 !important;
   }
   .offcanvas-header {
     background-color: $primary;

@@ -1,36 +1,33 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
-import { ArrowBarRight, ArrowRight } from "react-bootstrap-icons";
+import { ArrowBarRight } from "react-bootstrap-icons";
 import BlogCard from "../components/BlogCard";
+import { useAppSelector } from "../app/hooks";
+import { Link } from "react-router-dom";
 
-interface Blog {
-  id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  categories: string[];
-  imageUrl: string;
-  publishedAt: string;
-  author: string;
-  content: string;
-}
-
-const RecentBlogs = (mainBlog: Blog) => {
+const RecentBlogs = () => {
+  const recentBlogs = useAppSelector((state) => state.recentBlogs);
   return (
     <div className="recent-blogs-section">
-      {[mainBlog, mainBlog].map((blog, i) => (
-        <BlogCard key={i} Blog={blog} withTime={false} withImage={true} />
-      ))}
+      <div className="blog-cards-wrapper">
+        {recentBlogs.map((blog, i) => (
+          <BlogCard key={i} cardBlog={blog} />
+        ))}
+      </div>
       <div className="recent-blogs-sidebar">
-        {[mainBlog, mainBlog, mainBlog].map((blog, i) => (
+        {recentBlogs.map((blog, i) => (
           <div key={i} className="recent-blogs-sidebar-blog">
             <div className="recent-blogs-sidebar-title">{blog.title}</div>
             <div className="recent-blogs-sidebar-description">
-              {blog.description.length > 150
-                ? `${blog.description.slice(0, 150)}...`
-                : blog.description}
+              {blog.writeup.length > 150
+                ? `${blog.writeup.slice(0, 150)}...`
+                : blog.writeup}
             </div>
-            <div className="recent-blogs-sidebar-read">Read Article <ArrowBarRight /></div>
+
+            <div className="recent-blogs-sidebar-read">
+              <Link to={`/blog?title=${blog.title}`}>
+                Read Article <ArrowBarRight />
+              </Link>
+            </div>
           </div>
         ))}
       </div>

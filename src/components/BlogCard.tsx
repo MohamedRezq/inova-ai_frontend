@@ -1,58 +1,53 @@
 import React, { FC } from "react";
-import { Badge } from "react-bootstrap";
-import { ArrowRight } from "react-bootstrap-icons";
+import { HandThumbsUp, Chat } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
-interface BlogCardProps {
-  Blog: {
-    id: string;
-    title: string;
-    description: string;
-    tags: string[];
-    categories: string[];
-    imageUrl: string;
-    publishedAt: string;
-    author: string;
-    content: string;
-  };
-  withTime: Boolean;
-  withImage: Boolean;
-}
-
-const BlogCard: FC<BlogCardProps> = (props): JSX.Element => {
-  console.log("rx at section: ", props.Blog);
+const BlogCard = (props: any) => {
+  //const cardBlog = useAppSelector((state) => state.mainBlog);
   return (
     <div className="blog-card-container">
-      {props.withImage && (
+      <Link to={`/blog?title=${props.cardBlog.title}`}>
         <div className="blog-card-img-container">
           <div className="blog-card-img-overlay">Read Article</div>
           <img
-            src={props.Blog.imageUrl}
-            alt={props.Blog.title}
+            src="/assets/bitcoin.png"
+            alt={props.cardBlog.title}
             className="blog-card-img"
           />
         </div>
-      )}
-      <div className="blog-card-tags">
+      </Link>
+      {/*<div className="blog-card-tags">
         {props.Blog.tags.slice(0, 3).map((tag, i) => (
           <Badge bg="warning">{tag}</Badge>
         ))}
-      </div>
+        </div>*/}
       <div className="blog-card-title">
-        {props.Blog.title.length > 60
-          ? `${props.Blog.title.slice(0, 60)}...`
-          : props.Blog.title}
+        {props.cardBlog.title.length > 60
+          ? `${props.cardBlog.title.slice(0, 60)}...`
+          : props.cardBlog.title}
       </div>
       <div className="blog-card-publish">
-        <img
-          src="assets/account.png"
-          alt="author"
-          className="blog-card-publish-author-img"
-        />
-        Mohamed Rezq
+        <div>
+          <img
+            src="assets/account.png"
+            alt="author"
+            className="blog-card-publish-author-img"
+          />
+          Mohamed Rezq
+        </div>
+        <Link to={`/blog?title=${props.cardBlog.title}`}><button className="blog-card-btn">Read Article</button></Link>
       </div>
+
       <div className="blog-card-footer">
-        <button className="blog-card-btn">Read Article</button>
-        <div className="blog-card-publish-date">25 Mar 2023</div>
+        <div className="blog-card-reacts">
+          <span>{props.cardBlog.likes}</span>
+          <HandThumbsUp />
+          <span>{props.cardBlog.comments.length}</span>
+          <Chat />
+        </div>
+        <div className="blog-card-publish-date">
+          {props.cardBlog.created_at}
+        </div>
       </div>
     </div>
   );

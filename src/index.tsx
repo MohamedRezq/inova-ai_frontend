@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Provider as StateProvider } from "react-redux";
+import { Provider as ReduxProvider } from "react-redux";
 
 import App from "./App";
 import { store } from "./app/store";
@@ -15,10 +15,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <StateProvider store={store}>
+    <ReduxProvider store={store}>
       <Router>
         <App />
       </Router>
-    </StateProvider>
+    </ReduxProvider>
   </React.StrictMode>
 );

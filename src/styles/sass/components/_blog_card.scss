@@ -1,16 +1,18 @@
 .blog-card-container {
   border-radius: 15px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 350px;
   row-gap: 5px;
-  color: $primary;
+  color: black;
   border: solid 1px #e8e8ea;
   padding: 13px;
   box-shadow: antiquewhite 3px 3px;
   .blog-card-img-container {
     position: relative;
-    height: 200px;
+    height: 150px;
     width: 100%;
     overflow: hidden;
     border-radius: 15px;
@@ -38,31 +40,31 @@
   }
   .blog-card-title {
     margin-left: 10px;
-    font-size: calc(1em + 1vw);
-    line-height: calc(1em + 1vw);
+    font-size: calc(1em + 0.75vw);
+    line-height: calc(1em + 0.75vw);
     font-weight: 600;
-    cursor: pointer;
   }
-  .blog-card-tags {
-    margin-left: 10px;
-    margin-top: 10px;
-    display: flex;
-    column-gap: 10px;
-    text-transform: capitalize;
-    font-size: calc(0.6em + 0.5vw);
-    .badge {
-      background-color: $secondary !important;
-      cursor: pointer;
-    }
-  }
+  // .blog-card-tags {
+  //   margin-left: 10px;
+  //   margin-top: 10px;
+  //   display: flex;
+  //   column-gap: 10px;
+  //   text-transform: capitalize;
+  //   font-size: calc(0.6em + 0.5vw);
+  //   .badge {
+  //     background-color: $secondary !important;
+  //     cursor: pointer;
+  //   }
+  //}
   .blog-card-publish {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     margin-left: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: large;
+    font-size: medium;
     .blog-card-publish-author-img {
       border-radius: 9999px;
       width: 35px;
@@ -70,29 +72,45 @@
       margin-right: 10px;
     }
   }
+  .blog-card-btn {
+    border-color: $primary;
+    align-self: flex-end;
+    background-color: white;
+    color: $primary;
+    font-size: small;
+    font-weight: bold;
+    width: 100px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+  .blog-card-btn:hover {
+    background-color: $primary_dark;
+    border-color: white;
+    color: white;
+  }
   .blog-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+    padding-left: 10px;
     font-size: small;
-    .blog-card-btn {
-      border-color: $primary;
-      background-color: white;
-      color: $primary;
-      font-weight: bold;
-      width: 100px;
-      border-radius: 5px;
-      padding: 5px;
-      margin-left: 10px;
-    }
-    .blog-card-btn:hover {
-      background-color: $primary_dark;
-      border-color: white;
-      color: white;
-    }
     .blog-card-publish-date {
       align-self: flex-end;
+    }
+    .blog-card-reacts {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+      svg{
+        margin-right: 7px;
+        cursor: pointer;
+      }
+      svg:hover path{
+        color: blue;
+      }
     }
   }
 }
