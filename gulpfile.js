@@ -1,6 +1,5 @@
 const { src, dest, watch, series } = require('gulp')
 const sass = require('gulp-sass')(require('node-sass'))
-const purgecss = require('gulp-purgecss')
 
 function buildStyles() {
   return src('src/styles/sass/**/*.scss')
